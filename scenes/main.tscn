@@ -19,13 +19,15 @@ sources/0 = SubResource("TileSetAtlasSource_4r1iu")
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5h217")
 
-[node name="Player" type="Polygon2D" parent="."]
+[node name="movement" type="Node" parent="."]
+script = ExtResource("1_uk6ml")
+
+[node name="Player" type="Polygon2D" parent="movement"]
 z_index = 1
 position = Vector2(560, 288)
 color = Color(1, 0, 0, 1)
 antialiased = true
 polygon = PackedVector2Array(-12, -24, 12, -24, 24, 0, 12, 24, -12, 24, -24, 0)
-script = ExtResource("1_uk6ml")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fjms5")
@@ -56,6 +58,7 @@ offset_right = -56.0
 offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
+disabled = true
 
 [node name="Choice2" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -68,6 +71,7 @@ offset_top = -176.0
 offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 0
+disabled = true
 
 [node name="Roll" type="Button" parent="CanvasLayer"]
 offset_left = 64.0
@@ -75,3 +79,5 @@ offset_top = 544.0
 offset_right = 101.0
 offset_bottom = 575.0
 text = "Roll"
+
+[connection signal="pressed" from="CanvasLayer/Roll" to="." method="_roll_dice"]

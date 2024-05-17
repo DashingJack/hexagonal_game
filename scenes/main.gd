@@ -12,23 +12,15 @@ var die2: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	roll_button.pressed.connect(_roll_dice)
-	choice1_button.pressed.connect(temp_send1)
-	choice2_button.pressed.connect(temp_send2)
-	choice1_button.disabled = true
-	choice2_button.disabled = true
-	roll_button.disabled = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#var temp_timer = get_tree().create_timer(2)
-	#await(temp_timer.timeout)
-	#print("steps %d direction %d" % [die1, die2])
 	pass
 
 
-func temp_send1():
+func _temp_send1():
 	choice1_button.disabled = true
 	choice2_button.disabled = true
 	$Player.move_player(die1, die2)
@@ -37,7 +29,7 @@ func temp_send1():
 	await(temp_timer.timeout)
 	roll_button.disabled = false
 	
-func temp_send2():
+func _temp_send2():
 	choice1_button.disabled = true
 	choice2_button.disabled = true
 	$Player.move_player(die2, die1)
