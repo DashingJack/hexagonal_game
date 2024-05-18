@@ -14,6 +14,11 @@ config/name="Hexagonal Game"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*res://scripts/signal_bus.gd"
+CommonFunctions="*res://scripts/common_functions.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

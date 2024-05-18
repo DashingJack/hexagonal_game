@@ -1,6 +1,12 @@
 class_name movement extends Node
 
-func move_player(step: int, direction: int):
+var player_id: int
+
+func _ready():
+	player_id = CommonFunctions.genrate_player_id()
+
+func move_player(step: int, direction: int, signal_player_id):
+	if signal_player_id != player_id: return
 	var movement: Vector2
 	match direction:
 		1: 
