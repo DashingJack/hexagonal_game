@@ -1,3 +1,5 @@
 extends Node
 
-signal move_player_with_id(steps:int , direction:int, id:int)
+signal choice_made(steps:int , direction:int, id:int)
+signal dice_rolled(roll: Array[int])
+signal player_moved

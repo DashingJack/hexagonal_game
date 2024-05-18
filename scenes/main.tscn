@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctv14chgo1he7"]
+[gd_scene load_steps=9 format=3 uid="uid://ctv14chgo1he7"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_5h217"]
 [ext_resource type="Script" path="res://scripts/hexagonal_movement.gd" id="1_uk6ml"]
 [ext_resource type="Texture2D" uid="uid://db725h1tbesoj" path="res://assets/grass cropped.png" id="2_s8n2a"]
+[ext_resource type="Script" path="res://scenes/roll_result_label.gd" id="4_xpcji"]
+[ext_resource type="Script" path="res://scenes/choice_script.gd" id="5_6wq4n"]
+[ext_resource type="Script" path="res://scenes/roll_script.gd" id="6_b7o8j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4r1iu"]
 texture = ExtResource("2_s8n2a")
@@ -45,6 +48,7 @@ offset_top = -48.0
 offset_right = 200.0
 offset_bottom = -25.0
 grow_vertical = 0
+script = ExtResource("4_xpcji")
 
 [node name="Choice1" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -59,6 +63,7 @@ offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
 disabled = true
+script = ExtResource("5_6wq4n")
 
 [node name="Choice2" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -72,6 +77,8 @@ offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 0
 disabled = true
+script = ExtResource("5_6wq4n")
+choice_swap = true
 
 [node name="Roll" type="Button" parent="CanvasLayer"]
 offset_left = 64.0
@@ -79,5 +86,4 @@ offset_top = 544.0
 offset_right = 101.0
 offset_bottom = 575.0
 text = "Roll"
-
-[connection signal="pressed" from="CanvasLayer/Roll" to="." method="_roll_dice"]
+script = ExtResource("6_b7o8j")
