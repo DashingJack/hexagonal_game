@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7y3a28robxas"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ftacg"]
+[ext_resource type="Script" path="res://scenes/player_setup_menu.gd" id="2_d4jii"]
+[ext_resource type="Texture2D" uid="uid://b1lprbti0eg33" path="res://assets/barn.png" id="3_cp856"]
+[ext_resource type="Texture2D" uid="uid://bjlcawhxnv5xy" path="res://assets/blacksmiths.png" id="4_ilyjs"]
+[ext_resource type="Texture2D" uid="uid://b26l8po07l4ex" path="res://assets/castle.png" id="5_yt4ic"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftacg")
+
+[node name="Play" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 440.0
+offset_right = 577.0
+offset_bottom = 471.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 504.0
+offset_right = 578.0
+offset_bottom = 535.0
+text = "Quit"
+
+[node name="PlayerSetupMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_d4jii")
+
+[node name="PlayerProfileSelecter" type="ItemList" parent="PlayerSetupMenu"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+offset_left = 48.0
+offset_top = 184.0
+offset_right = 848.0
+offset_bottom = 304.0
+allow_search = false
+auto_height = true
+item_count = 3
+max_columns = 5
+same_column_width = true
+fixed_icon_size = Vector2i(50, 50)
+item_0/text = ""
+item_0/icon = ExtResource("3_cp856")
+item_1/text = ""
+item_1/icon = ExtResource("4_ilyjs")
+item_2/text = ""
+item_2/icon = ExtResource("5_yt4ic")
+
+[node name="Control" type="Control" parent="PlayerSetupMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerSetupMenu/Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 112.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerSetupMenu/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="PlayerProfile" type="Button" parent="PlayerSetupMenu/Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerSetupMenu/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PlayerSetupMenu/Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enter Player Name:"
+
+[node name="TextEdit" type="TextEdit" parent="PlayerSetupMenu/Control/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Player_1 "
+placeholder_text = "Enter Your Name"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+scroll_fit_content_height = true
+caret_blink = true
+
+[node name="AddPlayer" type="Button" parent="PlayerSetupMenu"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 552.0
+offset_right = 609.0
+offset_bottom = 583.0
+text = "+ Add Player"
+
+[connection signal="pressed" from="MainMenu/Play" to="PlayerSetupMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Play" to="MainMenu" method="_on_play_pressed"]
