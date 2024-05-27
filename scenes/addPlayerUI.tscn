@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd1lyjbvbe5r4"]
+
+[ext_resource type="Script" path="res://scenes/player_profile_button_pressed.gd" id="1_4je1q"]
+[ext_resource type="Script" path="res://scenes/add_player_ui.gd" id="1_eygeq"]
+
+[node name="MarginContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 301.0
+offset_bottom = 102.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_eygeq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="PlayerProfile" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+expand_icon = true
+script = ExtResource("1_4je1q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enter Player Name:"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "×"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Player_1 "
+placeholder_text = "Enter Your Name"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+scroll_fit_content_height = true
+caret_blink = true
+
+[connection signal="pressed" from="HBoxContainer/PlayerProfile" to="HBoxContainer/PlayerProfile" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
