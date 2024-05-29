@@ -56,8 +56,9 @@ grow_horizontal = 2
 alignment = 1
 script = ExtResource("2_d4jii")
 
-[node name="PlayerSetupSubMenu" type="VBoxContainer" parent="PlayerSetupMenu"]
+[node name="PlayerSetupSubMenu" type="GridContainer" parent="PlayerSetupMenu"]
 layout_mode = 2
+columns = 2
 script = ExtResource("3_bg6vh")
 uid_string = "uid://cd1lyjbvbe5r4"
 
@@ -108,5 +109,6 @@ script = ExtResource("6_ro4hx")
 
 [connection signal="pressed" from="MainMenu/Play" to="MainMenu" method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenu/Play" to="PlayerSetupMenu" method="_on_play_pressed"]
+[connection signal="child_exiting_tree" from="PlayerSetupMenu/PlayerSetupSubMenu" to="PlayerSetupMenu/PlayerSetupSubMenu" method="_on_child_exiting_tree"]
 [connection signal="pressed" from="PlayerSetupMenu/AddPlayer" to="PlayerSetupMenu/PlayerSetupSubMenu" method="_on_add_player_pressed"]
 [connection signal="item_selected" from="ItemList" to="ItemList" method="_on_item_selected"]

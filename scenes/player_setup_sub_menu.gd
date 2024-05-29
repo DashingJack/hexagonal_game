@@ -1,4 +1,4 @@
-extends Control
+extends GridContainer
 
 @export var uid_string: String
 
@@ -12,8 +12,12 @@ func _ready():
 		add_player_ui_load = load(ResourceUID.get_id_path(uid))
 
 
-
 func _on_add_player_pressed():
 	self.add_child(add_player_ui_load.instantiate())
 	if self.get_child_count() == 2:
 		SignalBus.game_can_be_started.emit()
+
+
+func _on_child_exiting_tree(node):
+	if self.get_child_count() == 2:
+		SignalBus.game_can_not_be_started.emit()
