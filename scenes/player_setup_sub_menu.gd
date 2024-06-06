@@ -10,6 +10,7 @@ func _ready():
 	uid = ResourceUID.text_to_id(uid_string)
 	if ResourceUID.has_id(uid):
 		add_player_ui_load = load(ResourceUID.get_id_path(uid))
+	SignalBus.start_button_pressed.connect(_on_start_button_pressed)
 
 
 func _on_add_player_pressed():
@@ -21,3 +22,7 @@ func _on_add_player_pressed():
 func _on_child_exiting_tree(node):
 	if self.get_child_count() == 2:
 		SignalBus.game_can_not_be_started.emit()
+
+
+func _on_start_button_pressed():
+	CommonFunctions.no_of_players = self.get_child_count()

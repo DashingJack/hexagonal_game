@@ -1,9 +1,13 @@
 extends MarginContainer
 
+var player_texture
+var player_name: String
+var player_no: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	player_no = CommonFunctions.genrate_player_id()
+	SignalBus.start_button_pressed.connect(_on_start_button_pressed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,3 +17,23 @@ func _process(delta):
 
 func _on_button_pressed():
 	self.queue_free()
+
+
+func _on_player_profile_pressed():
+	SignalBus.icon_selected.connect(_on_icon_selected , 4)
+
+
+func _on_icon_selected(icon, _index):
+	player_texture = icon
+
+
+func _on_text_edit_focus_entered():
+	SignalBus.player_name_set.connect(_get_player_name)
+
+
+func _get_player_name(name: String):
+	player_name = name
+
+func _on_start_button_pressed():
+	var player = Player.new(player_no, player_name, player_texture)
+	CommonFunctions.players_list.append(player)
