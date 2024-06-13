@@ -37,6 +37,5 @@ func _get_player_name(name_recived: String):
 	player_name = name_recived
 
 func _on_start_button_pressed():
-	print("start_butoo_pressed")
 	var player = Player.new(player_no, player_name, player_texture)
 	CommonFunctions.players_list.append(player)

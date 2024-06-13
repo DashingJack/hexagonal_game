@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://es6q0d8rafde"]
+
+[ext_resource type="Script" path="res://scenes/roll_result_label.gd" id="1_2sunw"]
+[ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_mus2r"]
+[ext_resource type="Script" path="res://scenes/choice_script.gd" id="2_c47ki"]
+[ext_resource type="Script" path="res://scenes/roll_script.gd" id="3_6xknf"]
+
+[node name="GameUI" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mus2r")
+
+[node name="RollResult" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -48.0
+offset_right = 200.0
+offset_bottom = -25.0
+grow_vertical = 0
+script = ExtResource("1_2sunw")
+
+[node name="Choice1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -80.0
+offset_right = -56.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+disabled = true
+script = ExtResource("2_c47ki")
+
+[node name="Choice2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -176.0
+offset_bottom = -144.0
+grow_horizontal = 0
+grow_vertical = 0
+disabled = true
+script = ExtResource("2_c47ki")
+choice_swap = true
+
+[node name="Roll" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 544.0
+offset_right = 101.0
+offset_bottom = 575.0
+text = "Roll"
+script = ExtResource("3_6xknf")

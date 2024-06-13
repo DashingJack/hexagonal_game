@@ -12,20 +12,19 @@ func _init(id_recived: int, name_recived: String, texture_recived):
 	player_id = id_recived
 	player_name = name_recived
 	player_texture = texture_recived
+	self.texture = player_texture
+	self.scale = Vector2(32, 32) / self.texture.get_size()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.texture = player_texture
-	self.scale = Vector2(32 / self.texture.get_width(), 32 / self.texture.get_height())
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
-func move_player(step: int, direction: int, signal_player_id):
-	if signal_player_id != player_id: return
+func move_player(step: int, direction: int):
 	var movement: Vector2
 	match direction:
 		1: 
@@ -43,7 +42,8 @@ func move_player(step: int, direction: int, signal_player_id):
 	
 	var temp_tween = get_tree().create_tween().set_trans(Tween.TRANS_BOUNCE).set_loops(step)
 	temp_tween.tween_callback(change_player_position.bind(movement)).set_delay(0.5)
-	#TODO add emit signal to player moved
+	await(temp_tween.finished)
+	SignalBus.player_moved.emit()
 
 func change_player_position(movement):
 	self.position += movement

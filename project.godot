@@ -16,8 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://scripts/signal_bus.gd"
 CommonFunctions="*res://scripts/common_functions.gd"
+SignalBus="*res://scripts/signal_bus.gd"
 
 [editor]
 
