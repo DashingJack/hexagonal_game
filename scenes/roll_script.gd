@@ -11,4 +11,4 @@ func _on_roll_pressed():
 	SignalBus.dice_rolled.emit(CommonFunctions.roll_dice())
 
 func _on_choice_made(_steps, _direction, _player_id):
-	self.diabled = false
+	self.disabled = false

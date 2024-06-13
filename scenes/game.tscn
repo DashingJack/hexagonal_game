@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctv14chgo1he7"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_seeo7"]
+[ext_resource type="Texture2D" uid="uid://bvyvwle4khjsn" path="res://assets/demo_tilemap.svg" id="2_7v04f"]
+[ext_resource type="Script" path="res://scenes/tilmap.gd" id="3_ftynk"]
+[ext_resource type="Script" path="res://scenes/roll_result_label.gd" id="4_xpcji"]
+[ext_resource type="Script" path="res://scenes/choice_script.gd" id="5_6wq4n"]
+[ext_resource type="Script" path="res://scenes/roll_script.gd" id="6_b7o8j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ln6n7"]
+texture = ExtResource("2_7v04f")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fjms5"]
+tile_shape = 3
+tile_layout = 1
+tile_offset_axis = 1
+tile_size = Vector2i(48, 48)
+sources/2 = SubResource("TileSetAtlasSource_ln6n7")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_seeo7")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(552, 324)
+tile_set = SubResource("TileSet_fjms5")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 2, 1, -1, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -65534, 2, 0, -65535, 2, 0, -196608, 2, 0, -262144, 2, 0, -327680, 2, 0, -393216, 2, 0, -458752, 2, 0, 0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 262144, 2, 0, 327680, 2, 0, 1, 2, 0, 2, 2, 0, 65539, 2, 0, 65540, 2, 0, 131077, 2, 0, 131078, 2, 0, -131069, 2, 0, -196604, 2, 0, -196603, 2, 0, -262138, 2, 0, -65538, 2, 0, -65539, 2, 0, -131076, 2, 0, -131077, 2, 0, -196614, 2, 0, 65535, 2, 0, 65534, 2, 0, 131069, 2, 0, 131068, 2, 0, 196603, 2, 0, 196602, 2, 0, -131078, 2, 0, -65542, 2, 0, -6, 2, 0, 65530, 2, 0, 131066, 2, 0, -196613, 2, 0, -262148, 2, 0, -262147, 2, 0, -327682, 2, 0, -327681, 2, 0, -393215, 2, 0, -393214, 2, 0, -327677, 2, 0, -327676, 2, 0, -262139, 2, 0, -196602, 2, 0, -131066, 2, 0, -65530, 2, 0, 6, 2, 0, 65542, 2, 0, 196613, 2, 0, 196612, 2, 0, 262147, 2, 0, 262146, 2, 0, 327681, 2, 0, 393215, 2, 0, 327678, 2, 0, 327677, 2, 0, 262140, 2, 0, 262139, 2, 0, 196605, 2, 0, 131070, 2, 0, 131071, 2, 0, 196607, 2, 0, 196606, 2, 0, 262141, 2, 0, 196604, 2, 0, 262142, 2, 0, 262143, 2, 0, 327679, 2, 0, 131075, 2, 0, 65538, 2, 0, 65537, 2, 0, 131073, 2, 0, 196609, 2, 0, 131074, 2, 0, 196610, 2, 0, 196611, 2, 0, 131076, 2, 0, 262145, 2, 0, -65532, 2, 0, -65531, 2, 0, -131067, 2, 0, -131068, 2, 0, -65533, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 65541, 2, 0, -262142, 2, 0, -262141, 2, 0, -327678, 2, 0, -327679, 2, 0, -262143, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -262140, 2, 0, -196609, 2, 0, -262145, 2, 0, -262146, 2, 0, -196611, 2, 0, -196612, 2, 0, -131075, 2, 0, -196610, 2, 0, -131074, 2, 0, -131073, 2, 0, -3, 2, 0, -65540, 2, 0, -65541, 2, 0, -5, 2, 0, 65531, 2, 0, -4, 2, 0, 65532, 2, 0, 65533, 2, 0, -2, 2, 0, 131067, 2, 0, -196615, 65538, 0, -131079, 65538, 0, -65543, 65538, 0, -7, 65538, 0, 65529, 65538, 0, 131065, 65538, 0, 196601, 65538, 0, 262137, 65538, 0, 262138, 65538, 0, 327675, 65538, 0, 327676, 65538, 0, 393213, 65538, 0, 393214, 65538, 0, 458751, 65538, 0, 393216, 65538, 0, 393217, 65538, 0, 327682, 65538, 0, 327683, 65538, 0, 262148, 65538, 0, 262149, 65538, 0, 196614, 65538, 0, 196615, 65538, 0, 131079, 65538, 0, 65543, 65538, 0, 7, 65538, 0, -65529, 65538, 0, -131065, 65538, 0, -196601, 65538, 0, -262137, 65538, 0, -327674, 65538, 0, -327675, 65538, 0, -393212, 65538, 0, -393213, 65538, 0, -458750, 65538, 0, -458751, 65538, 0, -524288, 65538, 0, -393217, 65538, 0, -393218, 65538, 0, -327683, 65538, 0, -327684, 65538, 0, -262149, 65538, 0, -262150, 65538, 0)
+script = ExtResource("3_ftynk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RollResult" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -48.0
+offset_right = 200.0
+offset_bottom = -25.0
+grow_vertical = 0
+script = ExtResource("4_xpcji")
+
+[node name="Choice1" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -80.0
+offset_right = -56.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+disabled = true
+script = ExtResource("5_6wq4n")
+
+[node name="Choice2" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -176.0
+offset_bottom = -144.0
+grow_horizontal = 0
+grow_vertical = 0
+disabled = true
+script = ExtResource("5_6wq4n")
+choice_swap = true
+
+[node name="Roll" type="Button" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 544.0
+offset_right = 101.0
+offset_bottom = 575.0
+text = "Roll"
+script = ExtResource("6_b7o8j")

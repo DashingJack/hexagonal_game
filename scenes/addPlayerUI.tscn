@@ -63,3 +63,4 @@ script = ExtResource("3_a76gr")
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="focus_entered" from="HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_focus_entered"]
 [connection signal="focus_exited" from="HBoxContainer/VBoxContainer/TextEdit" to="HBoxContainer/VBoxContainer/TextEdit" method="_on_focus_exited"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

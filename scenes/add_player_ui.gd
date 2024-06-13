@@ -3,6 +3,7 @@ extends MarginContainer
 var player_texture
 var player_name: String
 var player_no: int
+var signal_connected: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,13 +28,15 @@ func _on_icon_selected(icon, _index):
 	player_texture = icon
 
 
-func _on_text_edit_focus_entered():
-	SignalBus.player_name_set.connect(_get_player_name)
+func _on_text_edit_text_changed():
+	if !SignalBus.player_name_set.is_connected(_get_player_name):
+		SignalBus.player_name_set.connect(_get_player_name)
 
 
-func _get_player_name(name: String):
-	player_name = name
+func _get_player_name(name_recived: String):
+	player_name = name_recived
 
 func _on_start_button_pressed():
+	print("start_butoo_pressed")
 	var player = Player.new(player_no, player_name, player_texture)
 	CommonFunctions.players_list.append(player)

@@ -14,3 +14,4 @@ func _process(delta):
 
 func _on_pressed():
 	SignalBus.start_button_pressed.emit()
+	print("button presssed")

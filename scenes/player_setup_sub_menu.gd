@@ -19,7 +19,7 @@ func _on_add_player_pressed():
 		SignalBus.game_can_be_started.emit()
 
 
-func _on_child_exiting_tree(node):
+func _on_child_exiting_tree(_node):
 	if self.get_child_count() == 2:
 		SignalBus.game_can_not_be_started.emit()
 

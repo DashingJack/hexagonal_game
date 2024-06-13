@@ -18,6 +18,6 @@ func _on_pressed():
 	SignalBus.icon_select_button_pressed.emit(selected_index)
 
 
-func _on_icon_selected(icon, index):
+func _on_icon_selected(icon_recived, index):
 	selected_index = index
-	self.set_button_icon(icon)
+	self.set_button_icon(icon_recived)
