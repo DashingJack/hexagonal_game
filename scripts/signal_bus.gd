@@ -1,9 +1,12 @@
 extends Node
 
-#player movement and main game related
-signal dice_rolled(roll: Array[int])
-signal choice_made(steps:int , direction:int)
+#main game related signals
+signal roll_button_pressed
+signal choice_to_made(roll: Roll)
 signal player_moved
+signal choice_made(roll: Roll)
+signal game_won(player_name: StringName, player_texture)
+signal play_again_pressed
 
 #player data in main menu releted
 signal icon_select_button_pressed(index: int)
@@ -21,4 +24,5 @@ signal player_data_loaded
 
 #ui control related
 signal play_button_pressed
+
 

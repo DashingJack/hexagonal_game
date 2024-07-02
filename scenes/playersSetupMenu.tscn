@@ -1,17 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bl27i84l1h7va"]
+[gd_scene load_steps=12 format=3 uid="uid://bl27i84l1h7va"]
 
-[ext_resource type="Script" path="res://scenes/player_setup_menu.gd" id="1_ixfwa"]
-[ext_resource type="Script" path="res://scenes/player_setup_menu_vbox.gd" id="2_m88bl"]
-[ext_resource type="Script" path="res://scenes/player_setup_sub_menu.gd" id="3_lld3i"]
+[ext_resource type="Script" path="res://scenes/players_setup_menu.gd" id="1_ixfwa"]
+[ext_resource type="Script" path="res://scenes/players_setup_menu_vbox.gd" id="2_m88bl"]
+[ext_resource type="Script" path="res://scenes/players_setup_sub_menu.gd" id="3_lld3i"]
 [ext_resource type="PackedScene" uid="uid://cd1lyjbvbe5r4" path="res://scenes/addPlayerUI.tscn" id="4_6rmv7"]
-[ext_resource type="Script" path="res://scenes/add_player_button.gd" id="5_i28sc"]
 [ext_resource type="Texture2D" uid="uid://b1lprbti0eg33" path="res://assets/barn.png" id="6_v185h"]
 [ext_resource type="Texture2D" uid="uid://bjlcawhxnv5xy" path="res://assets/blacksmiths.png" id="7_y20qq"]
 [ext_resource type="Texture2D" uid="uid://b26l8po07l4ex" path="res://assets/castle.png" id="8_tf57t"]
 [ext_resource type="Texture2D" uid="uid://chiid4gu0kevs" path="res://assets/lighthouse.png" id="9_kykmb"]
 [ext_resource type="Texture2D" uid="uid://dnjra4eub51dl" path="res://assets/mountains.png" id="10_hgr7y"]
 [ext_resource type="Texture2D" uid="uid://b6k7y7jvnvng2" path="res://assets/seaport.png" id="11_cse1l"]
-[ext_resource type="Script" path="res://scenes/player_icon_select.gd" id="12_ktmkv"]
+[ext_resource type="Script" path="res://scenes/players_icon_select.gd" id="12_ktmkv"]
 
 [node name="PlayerSetupMenu" type="Control"]
 visible = false
@@ -47,7 +46,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "+ Add Player"
-script = ExtResource("5_i28sc")
 
 [node name="ItemList" type="ItemList" parent="."]
 visible = false

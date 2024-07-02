@@ -5,12 +5,6 @@ extends ItemList
 func _ready():
 	SignalBus.icon_select_button_pressed.connect(_on_icon_select_button_pressed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_icon_select_button_pressed(index):
 	self.visible = true
 	if index >= 0:

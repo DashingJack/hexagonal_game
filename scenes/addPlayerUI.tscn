@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd1lyjbvbe5r4"]
 
-[ext_resource type="Script" path="res://scenes/player_profile_button_pressed.gd" id="1_4je1q"]
+[ext_resource type="Script" path="res://scenes/players_profile_button_pressed.gd" id="1_4je1q"]
 [ext_resource type="Script" path="res://scenes/add_player_ui.gd" id="1_eygeq"]
-[ext_resource type="Script" path="res://scenes/player_name_field.gd" id="3_a76gr"]
+[ext_resource type="Script" path="res://scenes/players_name_field.gd" id="3_a76gr"]
 
 [node name="MarginContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 100)

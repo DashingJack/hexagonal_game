@@ -1,14 +1,12 @@
 extends Button
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	self.pressed.connect(_on_roll_pressed)
-	SignalBus.choice_made.connect(_on_choice_made)
+	SignalBus.player_moved.connect(_on_player_moved)
 
 func _on_roll_pressed():
 	self.disabled = true
-	SignalBus.dice_rolled.emit(CommonFunctions.roll_dice())
+	SignalBus.roll_button_pressed.emit()
 
-func _on_choice_made(_steps, _direction):
+func _on_player_moved():
 	self.disabled = false

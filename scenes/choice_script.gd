@@ -1,24 +1,30 @@
 extends Button
 
-var die1: int
-var die2: int
+var roll: Roll
 
 @export var choice_swap: bool
 
 func _ready():
-	SignalBus.dice_rolled.connect(_on_dice_rolled)
+	SignalBus.choice_to_made.connect(_on_dice_rolled)
 	SignalBus.choice_made.connect(_on_choice_made)
 	self.pressed.connect(_on_pressed)
+	self.visible = false
 
-func _on_dice_rolled(roll: Array[int]):
-	self.disabled = false
-	die1 = roll[0] if choice_swap == false else roll[1]
-	die2 = roll[1] if choice_swap == false else roll[0]
-	self.text = "Move %d Steps in Direction %d" % [die1, die2]
+func _on_dice_rolled(roll_recived: Roll):
+	roll = roll_recived
+	if choice_swap == true and (roll.get_is_same() || !roll.get_is_inverse_possible()):
+		return
+	self.visible = true
+	if choice_swap == false:
+		self.text = "Move %d Steps in Direction %d" % [roll.get_die1(), roll.get_die2()]
+	else:
+		self.text = "Move %d Steps in Direction %d" % [roll.get_die2(), roll.get_die1()]
 
 func _on_pressed():
-	self.disabled = true
-	SignalBus.choice_made.emit(die1, die2)
+	self.visible = false
+	if choice_swap == true:
+		roll.invert()
+	SignalBus.choice_made.emit(roll)
 
-func _on_choice_made(_die1, _die2):
-	self.disabled = true
+func _on_choice_made(_roll):
+	self.visible = false
